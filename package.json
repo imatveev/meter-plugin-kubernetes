@@ -4,10 +4,8 @@
   "private": false,
   "description": "Kubernetes plugin for TrueSight Pulse",
   "main": "index.js",
-  "devDependencies": {},
-  "dependencies": {
-    "node-fetch": "1.7.1"
-  },
+  "devDependencies": { },
+  "dependencies": { },
   "repository": {
     "type": "git",
     "url": ""

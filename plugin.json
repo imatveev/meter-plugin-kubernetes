@@ -2,7 +2,6 @@
     "description": "Displays important kubernetes metrics",
     "icon":        "icon.png",
     "command":     "node index.js",
-    "postExtract": "npm install",
     "ignore":      "node_modules",
     "metrics" : [
         "KUBERNETES_NODE_CPU_UTILIZATION",

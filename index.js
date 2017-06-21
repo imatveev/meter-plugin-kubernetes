@@ -1,11 +1,10 @@
 'use strict';
 
-const fetch          = require('node-fetch');
-const plugin         = require('./plugin.json');
-const metrics        = require('./metrics.json');
-const os             = require('os');
-const postprocessors = require('./postprocessors');
-const { getByPath }  = require('./util');
+const plugin               = require('./plugin.json');
+const metrics              = require('./metrics.json');
+const os                   = require('os');
+const postprocessors       = require('./postprocessors');
+const { getByPath, fetch } = require('./util');
 
 const pollInterval = plugin.pollInterval || 5000;
 const baseURL      = plugin.baseURL;
@@ -24,7 +23,6 @@ function poll() {
             data = flattenDeep(data);
             return Promise.all(data.map(value => {
                 return fetch(`${baseURL}${value.url}${metricData.endpoints.final}`)
-                .then(res => res.json())
                 .then(finalData => {
                     let result = getByPath(metricData.resultPath || [], finalData);
                     return { url: value.url, result };
@@ -74,7 +72,6 @@ function getInstanceUrls(loopBy, result = { url: '' }) {
         return Promise.resolve(result);
     }
     return fetch(`${baseURL}${result.url}${loopBy[0].endpoint}`)
-    .then(res => res.json())
     .then(data => {
         return Promise.all(data.map(a => {
             let updatedLoopBy = loopBy.slice(1);

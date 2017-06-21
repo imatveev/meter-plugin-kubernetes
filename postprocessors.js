@@ -1,8 +1,7 @@
 'use strict';
 
-const fetch         = require('node-fetch');
-const plugin        = require('./plugin.json');
-const { getByPath } = require('./util');
+const plugin               = require('./plugin.json');
+const { getByPath, fetch } = require('./util');
 
 const baseURL = plugin.baseURL;
 
@@ -17,7 +16,6 @@ module.exports = {
 
 function castToPercentage(data, metricData, url) {
     return fetch(url)
-    .then(res => res.json())
     .then(result => {
         let localResult = getByPath(metricData.resultPath || [], result);
         return { url: data.url, result: (data.result*100/localResult).toFixed(1) };
