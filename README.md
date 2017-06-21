@@ -32,7 +32,9 @@ Litespeed writes server statistics to multiple report files in the /tmp/lshttpd 
 
 Tracks the following metrics for the [kubernetes](https://kubernetes.io/) instance.
 
-|Metric Name                     |Description                                          |
-|:-------------------------------|:----------------------------------------------------|
-|Kubernetes Node CPU Utilization |The ratio of connections to the Max Limit            |
-|Kubernetes Pod CPU Utilization  |CPU utilization in absolute units for Kubernetes pod |
+|Metric Name                        |Description                                             |
+|:----------------------------------|:-------------------------------------------------------|
+|Kubernetes Node CPU Utilization    |CPU utilization percentage for Kubernetes node          |
+|Kubernetes Pod CPU Utilization     |CPU utilization in absolute units for Kubernetes pod    |
+|Kubernetes Node Memory Utilization |Memory utilization percentage for Kubernetes node       |
+|Kubernetes Pod Memory Utilization  |Memory utilization in absolute units for Kubernetes pod |
