@@ -1,0 +1,33 @@
+{
+  "name": "meter-plugin-kubernetes",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Kubernetes plugin for TrueSight Pulse",
+  "main": "index.js",
+  "devDependencies": {},
+  "dependencies": {
+    "node-fetch": "1.7.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "kubernetes",
+    "plugin",
+    "truesite"
+  ],
+  "author": {
+    "name":  "Ivan Matvieiev",
+    "email": "idmatvieiev@gmail.com",
+    "url":   "https://github.com/imatveev"
+  },
+  "license": "Apache v2",
+  "bugs": {
+    "url": ""
+  },
+  "engine": "node >= 6.10.1"
+}

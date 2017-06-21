@@ -1,0 +1,29 @@
+{
+    "KUBERNETES_NODE_CPU_UTILIZATION": {
+      "defaultAggregate":    "AVG",
+      "defaultResolutionMS": 1000,
+      "description":         "CPU utilization percentage for Kubernetes node",
+      "displayName":         "Kubernetes Node CPU Utilization",
+      "displayNameShort":    "kub-node-cpu-util",
+      "unit":                "number",
+      "endpoints":           {
+          "loopBy":            [ { "name": "node", "endpoint": "/nodes" } ],
+          "final": "/metrics/cpu/usage_rate"
+      },
+      "resultPath":     [ "metrics", "value" ],
+      "postprocessors": [ "castToPercentage" ]
+  },
+  "KUBERNETES_POD_CPU_UTILIZATION": {
+    "defaultAggregate":    "AVG",
+    "defaultResolutionMS": 1000,
+    "description":         "CPU utilization in absolute units for Kubernetes pod",
+    "displayName":         "Kubernetes Pod CPU Utilization",
+    "displayNameShort":    "kub-pod-cpu-util",
+    "unit":                "number",
+    "endpoints":           {
+        "loopBy":            [ { "name": "namespace", "endpoint": "/namespaces" }, { "name": "pod", "endpoint": "/pods" } ],
+        "final": "/metrics/cpu/usage_rate"
+    },
+    "resultPath": [ "metrics", "value" ]
+  }
+}
