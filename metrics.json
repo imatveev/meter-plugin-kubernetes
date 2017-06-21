@@ -11,7 +11,21 @@
           "final": "/metrics/cpu/usage_rate"
       },
       "resultPath":     [ "metrics", "value" ],
-      "postprocessors": [ "castToPercentage" ]
+      "postprocessors": [ "castCPUToPercentage" ]
+  },
+    "KUBERNETES_NODE_MEMORY_UTILIZATION": {
+      "defaultAggregate":    "AVG",
+      "defaultResolutionMS": 1000,
+      "description":         "Memory utilization percentage for Kubernetes node",
+      "displayName":         "Kubernetes Node Memory Utilization",
+      "displayNameShort":    "kub-node-memo-util",
+      "unit":                "number",
+      "endpoints":           {
+          "loopBy":            [ { "name": "node", "endpoint": "/nodes" } ],
+          "final": "/metrics/memory/usage"
+      },
+      "resultPath":     [ "metrics", "value" ],
+      "postprocessors": [ "castMemoToPercentage" ]
   },
   "KUBERNETES_POD_CPU_UTILIZATION": {
     "defaultAggregate":    "AVG",
@@ -23,6 +37,19 @@
     "endpoints":           {
         "loopBy":            [ { "name": "namespace", "endpoint": "/namespaces" }, { "name": "pod", "endpoint": "/pods" } ],
         "final": "/metrics/cpu/usage_rate"
+    },
+    "resultPath": [ "metrics", "value" ]
+},
+  "KUBERNETES_POD_MEMORY_UTILIZATION": {
+    "defaultAggregate":    "AVG",
+    "defaultResolutionMS": 1000,
+    "description":         "Memory utilization in absolute units for Kubernetes pod",
+    "displayName":         "Kubernetes Pod Memory Utilization",
+    "displayNameShort":    "kub-pod-memo-util",
+    "unit":                "number",
+    "endpoints":           {
+        "loopBy":            [ { "name": "namespace", "endpoint": "/namespaces" }, { "name": "pod", "endpoint": "/pods" } ],
+        "final": "/metrics/memory/usage"
     },
     "resultPath": [ "metrics", "value" ]
   }
