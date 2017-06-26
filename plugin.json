@@ -1,12 +1,44 @@
 {
-    "description": "Displays important kubernetes metrics",
-    "icon":        "icon.png",
-    "command":     "node index.js",
-    "ignore":      "node_modules",
-    "metrics" : [
-        "KUBERNETES_NODE_CPU_UTILIZATION",
-        "KUBERNETES_POD_CPU_UTILIZATION"
-    ],
-    "pollInterval": 5000,
-    "baseURL":      "http://kube.panamabmc.com:31280/api/v1/model"
+	"name": "Pulse Kubernets Plugin",
+	"description": "Plugin for Kubernetes",
+	"version": "0.0.1",
+	"meterVersionRequired": "4.5.0-778",
+	"unsupportedPlatforms": [],
+	"tags": "kubernetes",
+	"icon": "icon.png",
+	"command": "node index.js",
+	"ignore": "node_modules",
+	"metrics": [
+		"KUBERNETES_NODE_CPU_UTILIZATION",
+		"KUBERNETES_NODE_MEMORY_UTILIZATION",
+		"KUBERNETES_POD_CPU_UTILIZATION",
+		"KUBERNETES_POD_MEMORY_UTILIZATION"
+	],
+	"postExtract": "npm install",
+	"paramSchema": [
+		{
+			"title": "Kubernetes Hipster URL",
+			"name": "hipsterUrl",
+			"description": "URL reference to Kubernetes Hipster",
+			"type": "string",
+			"default": "http://heapster.kube-system.svc.cluster.local",
+			"required": true
+		},
+		{
+			"title": "Source Prefix",
+			"name": "sourcePrefix",
+			"description": "The prefix to use for the metric sources (sources will be <prefix>.cluster and <prefix>.pod.<pod-name>).",
+			"type": "string",
+			"default": "",
+			"required": false
+		},
+		{
+			"title": "Poll Interval (ms)",
+			"name": "pollInterval",
+			"description": "The Poll Interval (in milliseconds) to call the command.",
+			"type": "integer",
+			"default": 5000,
+			"required": false
+		}
+	]
 }

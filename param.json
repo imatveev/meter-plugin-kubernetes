@@ -1,0 +1,4 @@
+{
+	"hipsterUrl": "http://heapster.kube-system.svc.cluster.local",
+	"pollInterval": 5000
+}
