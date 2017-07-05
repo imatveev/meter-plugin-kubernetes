@@ -18,6 +18,7 @@ const util = {
     },
     fetch(url) {
         return new Promise((resolve, reject) => {
+            try {
             http.get(url, res => {
                 const { statusCode } = res;
                 const contentType = res.headers['content-type'];
@@ -49,6 +50,9 @@ const util = {
             }).on('error', (e) => {
                 reject(`Got error: ${e.message}`);
             });
+            } catch (error) {
+                reject(error);
+            }
         });
     }
 };

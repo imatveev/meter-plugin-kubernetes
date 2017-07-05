@@ -1,9 +1,9 @@
 'use strict';
 
-const plugin               = require('./plugin.json');
+const params               = require('./param.json');
 const { getByPath, fetch } = require('./util');
 
-const baseURL = plugin.baseURL;
+const baseURL = params.hipsterUrl;
 
 module.exports = {
     castCPUToPercentage(data, metricData) {
