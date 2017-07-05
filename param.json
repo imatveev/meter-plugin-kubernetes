@@ -1,4 +1,4 @@
 {
-	"hipsterUrl": "http://heapster.kube-system.svc.cluster.local",
+	"hipsterUrl": "http://kube.panamabmc.com:31280/api/v1/model",
 	"pollInterval": 5000
 }
