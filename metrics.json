@@ -11,7 +11,8 @@
           "final": "/metrics/cpu/usage_rate"
       },
       "resultPath":     [ "metrics", "value" ],
-      "postprocessors": [ "castCPUToPercentage" ]
+      "postprocessors": [ "castCPUToPercentage" ],
+      "instanceType":   "node"
   },
     "KUBERNETES_NODE_MEMORY_UTILIZATION": {
       "defaultAggregate":    "AVG",
@@ -25,7 +26,8 @@
           "final": "/metrics/memory/usage"
       },
       "resultPath":     [ "metrics", "value" ],
-      "postprocessors": [ "castMemoToPercentage" ]
+      "postprocessors": [ "castMemoToPercentage" ],
+      "instanceType":   "node"
   },
   "KUBERNETES_POD_CPU_UTILIZATION": {
     "defaultAggregate":    "AVG",
@@ -38,7 +40,8 @@
         "loopBy":            [ { "name": "namespace", "endpoint": "/namespaces" }, { "name": "pod", "endpoint": "/pods" } ],
         "final": "/metrics/cpu/usage_rate"
     },
-    "resultPath": [ "metrics", "value" ]
+    "resultPath": [ "metrics", "value" ],
+    "instanceType":   "pod"
 },
   "KUBERNETES_POD_MEMORY_UTILIZATION": {
     "defaultAggregate":    "AVG",
@@ -51,6 +54,7 @@
         "loopBy":            [ { "name": "namespace", "endpoint": "/namespaces" }, { "name": "pod", "endpoint": "/pods" } ],
         "final": "/metrics/memory/usage"
     },
-    "resultPath": [ "metrics", "value" ]
+    "resultPath": [ "metrics", "value" ],
+    "instanceType":   "pod"
   }
 }
