@@ -18,6 +18,6 @@ function castToPercentage(data, metricData, url) {
     return fetch(url)
     .then(result => {
         let localResult = getByPath(metricData.resultPath || [], result);
-        return { url: data.url, result: (data.result*100/localResult).toFixed(1) };
+        return { url: data.url, result: (data.result*100/localResult).toFixed(1), name: data.name };
     });
 }
