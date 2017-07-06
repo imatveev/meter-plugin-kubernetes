@@ -84,7 +84,7 @@ function writeOutput(data) {
     for (let metric in data) {
         if(data.hasOwnProperty(metric)) {
             data[metric].forEach(issue => {
-                console.log(`${metric} ${source} ${issue.result}`);
+                console.log(`${metric} ${issue.result} ${source}`);
             });
         }
     }
