@@ -1,6 +1,6 @@
 {
   "name": "meter-plugin-kubernetes",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "description": "Kubernetes plugin for TrueSight Pulse",
   "main": "index.js",
